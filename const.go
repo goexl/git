@@ -6,4 +6,7 @@ const (
 
 	defaultRemoteName = `origin`
 	defaultBranch     = `master`
+
+	homeEnv         = `HOME`
+	defaultFilePerm = 0600
 )
