@@ -1,7 +1,10 @@
 package git
 
-var _ = AddRemote
+var _ = Remote
 
-func AddRemote() (err error) {
+func Remote(url string, opts ...remoteOption) (err error) {
+	_options := newRemoteOptions(opts...)
+	err = execAddons([]interface{}{`remote`, `add`, _options.name, url}, opts)
+
 	return
 }

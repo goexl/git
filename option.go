@@ -7,7 +7,6 @@ type (
 
 	options struct {
 		exe          string
-		name         string
 		args         []interface{}
 		environments []string
 		dir          string
