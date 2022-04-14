@@ -5,4 +5,5 @@ const (
 	environmentFormatter = `%s=%s`
 
 	defaultRemoteName = `origin`
+	defaultBranch     = `master`
 )
