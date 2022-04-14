@@ -8,6 +8,7 @@ var (
 type optionDir struct {
 	tag
 	file
+	remote
 
 	dir string
 }

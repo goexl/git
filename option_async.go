@@ -9,6 +9,7 @@ var (
 type optionAsync struct {
 	tag
 	file
+	remote
 
 	async bool
 }

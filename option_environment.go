@@ -13,6 +13,7 @@ var (
 type optionEnvironment struct {
 	tag
 	file
+	remote
 
 	key   string
 	value string

@@ -8,6 +8,7 @@ var (
 type optionString struct {
 	tag
 	file
+	remote
 
 	output *string
 }

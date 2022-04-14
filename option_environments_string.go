@@ -11,6 +11,7 @@ var (
 type optionStringEnvironments struct {
 	tag
 	file
+	remote
 
 	environments []string
 }

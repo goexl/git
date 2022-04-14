@@ -10,6 +10,7 @@ var (
 type optionPwe struct {
 	tag
 	file
+	remote
 
 	pwe bool
 }
