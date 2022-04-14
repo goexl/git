@@ -2,19 +2,19 @@ package git
 
 var _ = User
 
-func User(author string, email string) (err error) {
-	if err = Author(author); nil != err {
+func User(author string, email string, opts ...option) (err error) {
+	if err = Author(author, opts...); nil != err {
 		return
 	}
-	err = Email(email)
+	err = Email(email, opts...)
 
 	return
 }
 
-func Author(author string) error {
-	return Exec(Args(`config`, `--global`, `user.name`, author))
+func Author(author string, opts ...option) error {
+	return Exec(append(opts, Args(`config`, `--global`, `user.name`, author))...)
 }
 
-func Email(email string) error {
-	return Exec(Args(`config`, `--global`, `user.email`, email))
+func Email(email string, opts ...option) error {
+	return Exec(append(opts, Args(`config`, `--global`, `user.email`, email))...)
 }
