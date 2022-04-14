@@ -15,13 +15,22 @@ func User(author string, email string, opts ...option) (err error) {
 }
 
 func Author(author string, opts ...option) error {
-	return Exec(append(opts, Args(`config`, `--global`, `user.name`, author))...)
+	return globalConfig([]interface{}{`user.name`, author}, opts...)
 }
 
 func Email(email string, opts ...option) error {
-	return Exec(append(opts, Args(`config`, `--global`, `user.email`, email))...)
+	return globalConfig([]interface{}{`user.email`, email}, opts...)
 }
 
 func SafeDirectory(dir string, opts ...option) error {
-	return Exec(append(opts, Args(`config`, `--global`, `--add`, `safe.directory`, dir))...)
+	return globalConfig([]interface{}{`--add`, `safe.directory`, dir}, opts...)
+}
+
+func globalConfig(args []interface{}, opts ...option) error {
+	global := []interface{}{
+		`config`,
+		`--global`,
+	}
+
+	return Exec(append(opts, Args(append(global, args...)))...)
 }
