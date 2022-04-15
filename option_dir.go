@@ -2,6 +2,7 @@ package git
 
 var (
 	_        = Dir
+	_        = Folder
 	_ option = (*optionDir)(nil)
 )
 
@@ -13,11 +14,16 @@ type optionDir struct {
 	dir string
 }
 
-// Dir 配置命令执行目录
+// Dir 目录
 func Dir(dir string) *optionDir {
 	return &optionDir{
 		dir: dir,
 	}
+}
+
+// Folder 目录
+func Folder(folder string) *optionDir {
+	return Dir(folder)
 }
 
 func (d *optionDir) apply(options *options) {

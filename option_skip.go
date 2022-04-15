@@ -2,7 +2,8 @@ package git
 
 var (
 	_           = Skip
-	_           = Sync
+	_           = Latest
+	_           = Second
 	_ tagOption = (*optionSkip)(nil)
 )
 
@@ -15,6 +16,16 @@ func Skip(skip int) *optionSkip {
 	return &optionSkip{
 		skip: skip,
 	}
+}
+
+// Latest 最后
+func Latest() *optionSkip {
+	return Skip(0)
+}
+
+// Second 第二个
+func Second() *optionSkip {
+	return Skip(2)
 }
 
 func (s *optionSkip) applyTag(options *tagOptions) {
