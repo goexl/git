@@ -9,4 +9,6 @@ const (
 
 	homeEnv         = `HOME`
 	defaultFilePerm = 0600
+
+	currentDir = `.`
 )

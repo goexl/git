@@ -1,14 +1,9 @@
 package git
 
 var (
-	_ = Init
 	_ = Commit
 	_ = Add
 )
-
-func Init(opts ...option) error {
-	return Exec(append(opts, Args(`init`))...)
-}
 
 func Commit(message string, opts ...fileOption) (err error) {
 	_options := newFileOptions(opts...)

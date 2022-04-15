@@ -23,7 +23,7 @@ func Email(email string, opts ...option) error {
 }
 
 func SafeDirectory(opts ...option) error {
-	return globalConfig([]interface{}{`--add`, `safe.directory`, `.`}, opts...)
+	return globalConfig([]interface{}{`--add`, `safe.directory`, currentDir}, opts...)
 }
 
 func globalConfig(args []interface{}, opts ...option) error {
