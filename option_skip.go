@@ -25,7 +25,7 @@ func Latest() *optionSkip {
 
 // Second 第二个
 func Second() *optionSkip {
-	return Skip(2)
+	return Skip(1)
 }
 
 func (s *optionSkip) applyTag(options *tagOptions) {
