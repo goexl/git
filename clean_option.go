@@ -1,7 +1,5 @@
 package git
 
-var _ cleanOption = (*clean)(nil)
-
 type (
 	cleanOption interface {
 		applyClean(options *cleanOptions)
@@ -10,8 +8,6 @@ type (
 	cleanOptions struct {
 		dir string
 	}
-
-	clean struct{}
 )
 
 func defaultCleanOptions() *cleanOptions {
@@ -28,5 +24,3 @@ func newCleanOptions(opts ...cleanOption) (_options *cleanOptions) {
 
 	return
 }
-
-func (c *clean) applyClean(_ *cleanOptions) {}

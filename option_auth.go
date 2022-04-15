@@ -2,6 +2,7 @@ package git
 
 var (
 	_            = Netrc
+	_            = Ssh
 	_ authOption = (*optionAuth)(nil)
 )
 
@@ -13,6 +14,13 @@ type optionAuth struct {
 func Netrc(uri string, username string, password string) *optionAuth {
 	return &optionAuth{
 		writer: newNetrc(uri, username, password),
+	}
+}
+
+// Ssh 安全连接
+func Ssh(key string, opts ...sshOption) *optionAuth {
+	return &optionAuth{
+		writer: newSsh(newSshOptions(opts...).dir, key),
 	}
 }
 

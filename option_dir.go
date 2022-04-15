@@ -23,3 +23,11 @@ func Dir(dir string) *optionDir {
 func (d *optionDir) apply(options *options) {
 	options.dir = d.dir
 }
+
+func (d *optionDir) applyClean(options *cleanOptions) {
+	options.dir = d.dir
+}
+
+func (d *optionDir) applySsh(options *sshOptions) {
+	options.dir = d.dir
+}
