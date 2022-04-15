@@ -22,8 +22,8 @@ func Email(email string, opts ...option) error {
 	return globalConfig([]interface{}{`user.email`, email}, opts...)
 }
 
-func SafeDirectory(dir string, opts ...option) error {
-	return globalConfig([]interface{}{`--add`, `safe.directory`, dir}, opts...)
+func SafeDirectory(opts ...option) error {
+	return globalConfig([]interface{}{`--add`, `safe.directory`, `.`}, opts...)
 }
 
 func globalConfig(args []interface{}, opts ...option) error {
