@@ -15,6 +15,7 @@ type (
 
 		collectors []*collector
 		checkers   []*checker
+		counters   []*counter
 
 		debug   bool
 		verbose bool

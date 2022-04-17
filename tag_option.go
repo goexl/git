@@ -20,4 +20,13 @@ func defaultTagOptions() *tagOptions {
 	}
 }
 
+func newTagOptions(opts ...tagOption) (_options *tagOptions) {
+	_options = defaultTagOptions()
+	for _, opt := range opts {
+		opt.applyTag(_options)
+	}
+
+	return
+}
+
 func (t tag) applyTag(_ *tagOptions) {}

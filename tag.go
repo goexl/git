@@ -7,7 +7,7 @@ import (
 var _ = Tag
 
 func Tag(opts ...tagOption) (tag string, err error) {
-	_options := defaultTagOptions()
+	_options := newTagOptions(opts...)
 	for _, opt := range opts {
 		opt.applyTag(_options)
 	}
@@ -32,7 +32,7 @@ func Tag(opts ...tagOption) (tag string, err error) {
 		`--tags`,
 		latest,
 	}
-	if err = execAddons(args, opts, String(&latest), DisablePwe()); nil == err {
+	if tagErr := execAddons(args, opts, String(&latest), DisablePwe()); nil == tagErr {
 		tag = latest
 	}
 

@@ -57,7 +57,7 @@ func exec(options *options) (err error) {
 		gexOptions = append(gexOptions, gex.Sync())
 	}
 
-	// 增加检查
+	// 检查器
 	for _, _checker := range options.checkers {
 		switch _checker.mode {
 		case checkerModeContains:
@@ -67,11 +67,19 @@ func exec(options *options) (err error) {
 		}
 	}
 
-	// 增加输出
+	// 收集器
 	for _, _collector := range options.collectors {
 		switch _collector.mode {
 		case collectorModeString:
 			gexOptions = append(gexOptions, gex.StringCollector(_collector.args.(*string)))
+		}
+	}
+
+	// 计数器
+	for _, _counter := range options.counters {
+		switch _counter.mode {
+		case counterModeLine:
+			gexOptions = append(gexOptions, gex.LineCounter(_counter.args.(*int64)))
 		}
 	}
 
