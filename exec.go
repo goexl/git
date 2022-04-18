@@ -9,12 +9,7 @@ import (
 var _ = Exec
 
 func Exec(opts ...option) error {
-	_options := defaultOptions()
-	for _, opt := range opts {
-		opt.apply(_options)
-	}
-
-	return exec(_options)
+	return exec(newOptions(opts...))
 }
 
 func execAddons(args []interface{}, opts interface{}, addons ...option) error {

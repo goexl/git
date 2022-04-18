@@ -27,3 +27,12 @@ func defaultOptions() *options {
 		exe: exe,
 	}
 }
+
+func newOptions(opts ...option) (_options *options) {
+	_options = defaultOptions()
+	for _, opt := range opts {
+		opt.apply(_options)
+	}
+
+	return
+}
