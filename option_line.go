@@ -16,6 +16,6 @@ func Line(line *int64) *optionLine {
 	}
 }
 
-func (c *optionLine) apply(options *options) {
-	options.counters = append(options.counters, newCounter(counterModeLine, c.line))
+func (l *optionLine) apply(options *options) {
+	options.counters = append(options.counters, newCounter(counterModeLine, l.line))
 }
